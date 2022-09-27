@@ -477,7 +477,11 @@ pub fn default_executable() -> Result<std::path::PathBuf, String> {
             if path.exists() {
                 return Ok(path);
             } else {
-                for path in &[r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"][..] {
+                for path in &[
+                    r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+                    r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
+                    r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+                ][..] {
                     if std::path::Path::new(path).exists() {
                         return Ok(path.into());
                     }
